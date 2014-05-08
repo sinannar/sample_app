@@ -165,3 +165,11 @@ div.field , div.actions {
 	margin-bottom: 0;
 	padding: 5px;
 }
+
+ul.users{
+	margin-top:  = 1em;
+}
+
+ul.users li{
+	list-style: none;
+}

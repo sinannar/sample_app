@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @title = @user.name
   end
 
   def new
@@ -10,7 +11,6 @@ class UsersController < ApplicationController
   end
 
   def create
-#  	raise params[:user].inspect
   	@user = User.new(params[:user])
   	if @user.save
   		flash[:success] = "Welcome to the Sample App!"

@@ -25,6 +25,5 @@ namespace :db do
 				user.microposts.create!(:content=> Faker::Lorem.sentence(5))			
 			end
 		end
-
 	end
 end

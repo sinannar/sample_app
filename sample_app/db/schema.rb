@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512182731) do
+ActiveRecord::Schema.define(version: 20140512211410) do
 
   create_table "link_tags", force: true do |t|
     t.integer  "link_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140512182731) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tag"
   end
 
   add_index "microposts", ["user_id"], name: "index_microposts_on_user_id"

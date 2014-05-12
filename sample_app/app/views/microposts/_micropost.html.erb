@@ -3,4 +3,11 @@
 		<span class ="content"><%= micropost.content %></span></br>
 		<span class ="timestamp">Posted <%= time_ago_in_words(micropost.created_at) %> ago.</span></br>
 	</td>
+	<% user = micropost.user resque User.find(micropost.user_id) %>
+	<% if current_user?(user) %>
+		<td><%= link_to "delete", micropost ,:method => :delete ,
+										:confirm => "Are you sure",
+										:title => micropost.content	%>
+		</td>
+	<% end %>
 </tr>

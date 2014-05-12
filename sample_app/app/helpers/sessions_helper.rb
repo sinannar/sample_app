@@ -9,7 +9,7 @@ module SessionsHelper
 	end
 
 	def current_user
-		@current_user ||= user_from_remember_toke
+		@current_user ||= user_from_remember_token
 	end
 
 	def signed_in?
@@ -44,7 +44,7 @@ module SessionsHelper
 
 	private
 
-		def user_from_remember_toke
+		def user_from_remember_token
 			User.authenticate_with_salt(*remember_token)
 			
 		end

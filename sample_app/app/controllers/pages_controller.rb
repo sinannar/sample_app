@@ -31,16 +31,23 @@ class PagesController < ApplicationController
     @results = [] 
     @tagsArr.reject! { |t| t.empty? }
 
+    @mytags = []
+
     if !@tagsArr.nil?
       @first_tags = current_user.feed.first.tag
       current_user.feed.each do |item|
         @feed_tags = explode(item.tag,'#')
         if !@feed_tags.nil?
           @feed_tags.reject! { |t| t.empty? }
+          @mytags.push(@feed_tags)
+
+
           @tagsArr.each do |tag|
-            if @feed_tags.include?(tag)
-              @results.push(item)
-              break
+            @feed_tags.each do |ftag|
+              if ftag.strip == tag.strip
+                @results.push(item)
+                break
+              end
             end
           end
           
@@ -48,7 +55,6 @@ class PagesController < ApplicationController
       end
     end
 
-    @first_tags = current_user.feed.first.tag
   
 
     @feed_items = @results.paginate(:page => params[:page], :per_page => 9)

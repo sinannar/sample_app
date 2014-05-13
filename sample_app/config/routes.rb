@@ -16,6 +16,7 @@ SampleApp::Application.routes.draw do
   get '/signup', :to => "users#new"
   get '/signin', :to => "sessions#new"
   get '/signout', :to => "sessions#destroy"
+  post '/search', :to => "pages#search"
 
 
 

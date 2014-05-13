@@ -1,0 +1,26 @@
+<% if signed_in? %>
+	<%= render 'shared/feed' %>
+	<p> results: <%= @results %></p>
+	<p> feed tags: <%= @feed_tags %></p>
+	<p> tagsArr: <%= @tagsArr %></p>
+	<p> first_tags: <%= @first_tags %></p>
+<%else%>
+	<h1>Home</h1>
+	<p>
+		<p>
+			Welcome to Link Repo</br>
+
+			This is the application for storing links
+			<a href="https://github.com/sinannar/sample_app">Codes</a> are available here
+		</p>
+	</p>
+	<p>	
+		If you do not have account yet!</br>
+		<%= link_to "Sign up now!",signup_path,:class => "signup_button round" %></br>
+	</p>
+	<p>	
+		Or you have already one...</br>
+		<%= link_to "Sign in" , signin_path %>
+	</p>
+	
+<%end%>

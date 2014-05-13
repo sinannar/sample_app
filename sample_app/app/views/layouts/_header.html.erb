@@ -1,24 +1,24 @@
-
-
-	<!-- Static navbar -->
-	<div class="navbar navbar-inverse navbar-static-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/">LINK REPO</a>
-			</div>
-			<div class="navbar-collapse collapse pull-right">
-				<!-- <div id="link-search" class="pull-left">
-					<%= form_for @title do |f| %>
-					<%= f.text_field :content, :placeholder => "#tag", :autocomplete => "on", :size => 50, :autofocus=>true %>
-					<%end%>
-				 --></div>
-			</div><!--/.nav-collapse -->
+<!-- Static navbar -->
+<div class="navbar navbar-inverse navbar-static-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">LINK REPO</a>
 		</div>
+		<div class="navbar-collapse collapse pull-right">
+			 <div id="link-search" class="pull-left">
+			 	<% if signed_in? %>
+					<%= form_tag "/search" do |f| %>
+					<%= text_field_tag  'tags', params[:tags], autocomplete: true, placeholder: "#tag", size: 50, autofocus:true %>
+					<%end%>
+				<%end%>
+			 </div>
+		</div><!--/.nav-collapse -->
 	</div>
+</div>
 
 

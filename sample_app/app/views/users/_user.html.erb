@@ -1,12 +1,13 @@
-<li>
+<li class="list-group-item">
 	<%= link_to user.name ,user %>
-	<%= user.admin %>
 	<% if current_user.admin?  %>
-	| 
-	<%= link_to "Delete", 
+	    <span class="badge"><%= link_to "Delete", 
 				user, 
 				:method => :delete,
 				:confirm => 'Are u sure ?' ,
-		 		:title => "Delete #{user.name}" %>
+		 		:title => "Delete #{user.name}",
+		 		:style => "color:#fff" %></span>
+ 
+	
 	<% end %>
 </li>

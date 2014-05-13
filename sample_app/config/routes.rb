@@ -10,6 +10,7 @@ SampleApp::Application.routes.draw do
 
   get '/contact',:to => 'pages#contact'
   get '/about',:to => 'pages#about'
+  get '/pricing',:to => 'pages#pricing'
   get '/help',:to => 'pages#help'
   get '/home',:to => 'pages#home'
   get '/signup', :to => "users#new"

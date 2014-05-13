@@ -5,12 +5,12 @@ class UsersController < ApplicationController
 
   def index
     @title = "All users"
-    @users = User.paginate(:page => params[:page])    
+    @users = User.paginate(:page => params[:page], :per_page => 9)    
   end
 
   def show
   	@user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(:page => params[:page])
+    @microposts = @user.microposts.paginate(:page => params[:page], :per_page => 9)
     @title = @user.name
   end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   	if @user.save
       sign_in @user
   		flash[:success] = "Welcome to the Sample App!"
-  		redirect_to @user
+  		redirect_back_or home_path
   	else 
   		@title = "Sign up"
   		render 'new'

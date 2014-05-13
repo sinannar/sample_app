@@ -1,19 +1,24 @@
-<header>
-	<%= link_to logo,root_path %>
-	<nav class = "round">
-		<ul>
-			<li><%= link_to "Home" , root_path %></li>
-			<% if signed_in? %>
-				<li><%= link_to "Profile" , user_path(current_user) %></li>
-				<li><%= link_to "Users" , users_path %></li>
-				<li><%= link_to "Settings" , edit_user_path(current_user) %></li>
-			<% end %>
-			<li><%= link_to "Help" , help_path %></li>
-			<% if signed_in? %>
-				<li><%= link_to "Sign out" , signout_path %></li>
-			<% else %>
-				<li><%= link_to "Sign in" , signin_path %></li>
-			<% end %>
-		</ul>
-	</nav>
-</header> 
+
+
+	<!-- Static navbar -->
+	<div class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">LINK REPO</a>
+			</div>
+			<div class="navbar-collapse collapse pull-right">
+				<!-- <div id="link-search" class="pull-left">
+					<%= form_for @title do |f| %>
+					<%= f.text_field :content, :placeholder => "#tag", :autocomplete => "on", :size => 50, :autofocus=>true %>
+					<%end%>
+				 --></div>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+
+

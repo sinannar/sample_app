@@ -1,12 +1,11 @@
-<%= form_for(@micropost) do |f| %>
+<div class="row mt centered link-add-section">   
+	<button type="button" class="pull-right add-link-btn btn-lg btn-default" onclick="showlink()">
+		<span class="glyphicon glyphicon-plus"></span> Add Link
+	</button>
+	<%= form_for @micropost, html: {class: "add-url-form"} do |f| %>
 	<%= render 'shared/error_messages', :object => f.object %>
-	<div class = "field">
-		url:</br>
-		<%= f.text_area :content %></br>
-		tags:</br>
-		<%= f.text_area :tag %></br>
-	</div>
-	<div class = "actions">
-		<%= f.submit "submit" %>
-	</div>
-<% end %>
+	<%= f.text_field :content, :placeholder => "url" %>
+	<%= f.text_field :tag, :placeholder => "#tag1 #tag2" %>
+	<%= f.submit "add link" %>
+	<%end%>
+</div>
